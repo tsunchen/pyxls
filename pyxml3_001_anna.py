@@ -26,9 +26,9 @@ srcpath = './test/'
 for fpathe, dirs, fs in os.walk(srcpath):
     for f in fs:
         print (os.path.join(fpathe,f))
-        print f
+        #print f
         srcfiles.append(f)
-print(srcfiles)
+#print(srcfiles)
 
 
 # 处理M，K，B数据，返回值
@@ -149,12 +149,18 @@ def pyxml_ms2003(srcfile):
     #dt_3.rename(columns={'A': 0, 'B': 1, 'C':2 }, inplace = True)
     dt_3.columns = ['UserID','LastInbound','AvgInbound','MaxInbound','LastOutbound','AvgOutbound','MaxOutbound']
     return dt_3
+    #dt_3.to_excel(sheetbook, filename)
+    #dt_3.to_excel("xmltest.xlsx", filename)
 
 
 if __name__=='__main__':
     writer = pd.ExcelWriter('xmltest.xlsx')
+    #df1.to_excel(writer, sheet_name='sheet1')
+    #df2.to_excel(writer, sheet_name='sheet2')
+    
+    #pyxml_ms2003(srcfile)
     for f in srcfiles:
-        print (f)
+        print ('file was read: %s' % f)
         srcfilenm = './test/' + f
         df = pyxml_ms2003(srcfilenm)
         df.to_excel(writer, sheet_name = f)
