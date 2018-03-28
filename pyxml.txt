@@ -19,7 +19,7 @@ df = pd.DataFrame()
 
 a = np.array(xmlist[143:-13])
 icnt = int(len(xmlist[143:-13])/fcnt)
-# 以icnt，fcnt为行列，重塑矩阵
+# 以i，fcnt为行列，重塑矩阵
 b = a.reshape(icnt, fcnt)
 #b
 
@@ -94,8 +94,6 @@ dt_3 = df_3.T
 dt_3.columns.values
 
 #dt_3.rename(columns={'A': 0, 'B': 1, 'C':2 }, inplace = True)
-dt_3.columns = 
-
-['UserID','LastInbound','AvgInbound','MaxInbound','LastOutbound','AvgOutbound','MaxOutbound']
+dt_3.columns = ['UserID','LastInbound','AvgInbound','MaxInbound','LastOutbound','AvgOutbound','MaxOutbound']
 dt_3
 dt_3.to_excel("xmltest.xlsx",'输出')
