@@ -133,7 +133,7 @@ def pyxmlm_ms2003(srcfile, mapper):
         for col_c in range(valid_cols):
             if ('-' not in idt.values[row_c][col_c]):
                 #print (calMega(idt_2.values[row_c][col_c]))
-                res.append(str(calMega(idt.values[row_c][col_c])))
+                res.append(str(calMega(idt.values[row_c][col_c]) + str('M')))
             else:
                 #print (idt_2.values[row_c][col_c])
                 res.append(str(idt.values[row_c][col_c]))
@@ -246,7 +246,7 @@ def pyxml_ms2003(srcfile):
         for col_c in range(valid_cols):
             if ('-' not in idt.values[row_c][col_c]):
                 #print (calMega(idt_2.values[row_c][col_c]))
-                res.append(str(calMega(idt.values[row_c][col_c])))
+                res.append(str(calMega(idt.values[row_c][col_c])) + str('M'))
             else:
                 #print (idt_2.values[row_c][col_c])
                 res.append(str(idt.values[row_c][col_c]))
@@ -321,7 +321,7 @@ if __name__=='__main__':
           --all     : Feed all the .xml files in the TEST folder
           --file    : Point to a .xml file in the TEST folder
           --map     : Index the SN from the Mapper
-          --html    : Make the mapmultifile the HTML
+          --html    : Make the multifile the HTML
           --version : Prints the version number
           --help    : Display this help''')
         elif option == "file":
@@ -350,7 +350,7 @@ if __name__=='__main__':
             writer.save()
         elif option == "map":
             print ('option: map')
-            print ('to index the mapper file!')
+            print ('To index the mapper file!')
             print (mapperfile)
             writer = pd.ExcelWriter('xmlmapmultifile.xlsx')
             for f in srcfiles:
@@ -361,11 +361,11 @@ if __name__=='__main__':
             writer.save()
         elif option == "html":
             print('option: html')
-            print('Make the mapmultifile the HTML!')
+            print('Make the multifile the HTML!')
             for f in srcfiles:
                 # pyxlsx_to_html(srcxlsx, srcsheet, tarsheethtml)
                 tarsheethtmlnm = './' + f + '.html'
-                pyxlsx_to_html('xmlmapmultifile.xlsx', f, tarsheethtmlnm)
+                pyxlsx_to_html('xmlmultifile.xlsx', f, tarsheethtmlnm)
                 print ('%s created.' % tarsheethtmlnm)
         else:
             print ('Unknown option.')
