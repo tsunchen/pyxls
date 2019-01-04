@@ -5,7 +5,7 @@
 @author: tsunc & zadmine
 @software: PyCharm Community Edition
 @time: 2018/10/30 00:10
-@update：2019/1/4 
+@update：2019/1/4 19:28 
 """
 
 import numpy as np
