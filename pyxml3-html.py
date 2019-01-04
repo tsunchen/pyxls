@@ -5,6 +5,7 @@
 @author: tsunc & zadmine
 @software: PyCharm Community Edition
 @time: 2018/10/30 00:10
+@update：2019/1/4 
 """
 
 import numpy as np
@@ -20,15 +21,15 @@ import os, sys
 #
 # 扫描源文件夹
 mapperfile = []
-#mapperpath = './mapper/'
-mapperpath = 'E:/tsun/ct-summary/mapper'
+mapperpath = './mapper/'
+#mapperpath = 'E:/tsun/ct-summary-py/mapper'
 
 for fpathe, dirs, fs in os.walk(mapperpath):
     for f in fs:
         ##print (os.path.join(fpathe,f))
         #print f
         mapperfile.append(f)
-#print(mapperfile)
+print(mapperfile)
 
 df_mapper = pd.read_excel(str(mapperpath)+'/'+mapperfile[0], sheet_name = 'sn-mapper-name')
 
@@ -36,8 +37,8 @@ df_mapper = pd.read_excel(str(mapperpath)+'/'+mapperfile[0], sheet_name = 'sn-ma
 
 # 扫描源文件夹
 srcfiles = []
-#srcpath = './test/'
-srcpath = 'E:/tsun/ct-summary/test'
+srcpath = './test/'
+#srcpath = 'E:/tsun/ct-summary-py/test'
 
 for fpathe, dirs, fs in os.walk(srcpath):
     for f in fs:
@@ -133,7 +134,8 @@ def pyxmlm_ms2003(srcfile, mapper):
         for col_c in range(valid_cols):
             if ('-' not in idt.values[row_c][col_c]):
                 #print (calMega(idt_2.values[row_c][col_c]))
-                res.append(str(calMega(idt.values[row_c][col_c]) + str('M')))
+                #res.append(str(calMega(idt.values[row_c][col_c]) + str('M')))
+                res.append(str(calMega(idt.values[row_c][col_c])) + str('M'))
             else:
                 #print (idt_2.values[row_c][col_c])
                 res.append(str(idt.values[row_c][col_c]))
